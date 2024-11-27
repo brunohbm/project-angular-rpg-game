@@ -1,0 +1,35 @@
+@import 'borders';
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+}
+
+.center-content {
+    display: flex;
+}
+
+.right-content {
+    display: flex;
+}
+
+.bar {
+    background-color: red;
+    height: 20px;
+    width: 100px;
+    border-radius: $border-radius-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding-top: 2px;
+}

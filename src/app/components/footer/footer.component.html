@@ -1,19 +1,40 @@
 <div class="footer">
     <div class="left-content">
-        <ng-container *ngTemplateOutlet="bar"></ng-container>
-        <ng-container *ngTemplateOutlet="bar"></ng-container>
-        <ng-container *ngTemplateOutlet="bar"></ng-container>
+        <ng-container
+            *ngTemplateOutlet="bar; context: { value: 50, type: 'health', description: 'Vida' }"></ng-container>
+        <ng-container *ngTemplateOutlet="bar; context: { value: 10, type: 'mana', description: 'Mana' }"></ng-container>
+        <ng-container
+            *ngTemplateOutlet="bar; context: { value: 10, type: 'stamina', description: 'Stamina' }"></ng-container>
     </div>
     <div class="center-content">
-        center
+        <ng-container *ngTemplateOutlet="menu"></ng-container>
+        <ng-container *ngTemplateOutlet="menu"></ng-container>
+        <ng-container *ngTemplateOutlet="menu"></ng-container>
     </div>
     <div class="right-content">
-        right
+        <ng-container
+            *ngTemplateOutlet="bar; context: { value: 20, type: 'xp', description: 'Experiência' }"></ng-container>
+        <div class="money-container">
+            <img src="https://opengameart.org/sites/default/files/bag_1.png" class="coin-bag-image">
+            15750 Moedas
+        </div>
     </div>
 </div>
 
-<ng-template #bar>
-    <div class="bar">
-        20/100
+<ng-template #bar let-value="value" let-type="type" let-description="description">
+    <div [class]="['bar', type]">
+        <div class="bar-fill" [style.width.%]="100 - value"></div>
+        <span class="bar-value">
+            {{value}}/100
+        </span>
+        <span class="bar-description">
+            {{description}}
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #menu>
+    <div class="menu-item">
+        X
     </div>
 </ng-template>

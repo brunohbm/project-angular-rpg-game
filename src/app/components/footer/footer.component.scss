@@ -1,26 +1,22 @@
 @import 'borders';
+@import 'spacing';
+@import 'colors';
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    background-color: $color-dark;
+    align-items: center;
 }
 
 .left-content {
     display: flex;
-    gap: 12px;
-    padding: 12px;
-}
-
-.center-content {
-    display: flex;
-}
-
-.right-content {
-    display: flex;
+    gap: $space-4;
+    padding-left: $space-4;
+    padding-right: $space-4;
+    justify-content: left;
 }
 
 .bar {
-    background-color: red;
     height: 20px;
     width: 100px;
     border-radius: $border-radius-large;
@@ -31,5 +27,83 @@
     line-height: 14px;
     letter-spacing: 1px;
     font-weight: 600;
-    padding-top: 2px;
+    padding-top: 1px;
+    color: $color-light;
+    position: relative;
+    overflow: hidden;
+
+    &.health {
+        background-color: $color-health;
+    }
+
+    &.mana {
+        background-color: $color-mana;
+    }
+
+    &.stamina {
+        background-color: $color-life;
+    }
+
+    &.xp {
+        background-color: $color-xp;
+    }
+
+    &:hover {
+        .bar-value {
+            display: none;
+        }
+
+        .bar-description {
+            display: unset;
+        }
+    }
+}
+
+.bar-value {
+    z-index: 1;
+}
+
+.bar-description {
+    display: none;
+    z-index: 1;
+}
+
+.bar-fill {
+    position: absolute;
+    height: 100%;
+    background-color: $color-dark;
+    opacity: 0.8;
+    right: 0;
+}
+
+.center-content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: $space-6;
+}
+
+.menu-item {
+    height: 55px;
+    width: 45px;
+    background-color: $color-health;
+}
+
+.right-content {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-left: $space-4;
+    padding-right: $space-4;
+}
+
+.coin-bag-image {
+    width: 50px;
+    height: 50px;
+}
+
+.money-container {
+    display: flex;
+    align-items: center;
+    color: $color-light;
 }

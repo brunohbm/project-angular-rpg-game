@@ -6,6 +6,9 @@
     display: flex;
     background-color: $color-dark;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: $space-4;
 }
 
 .left-content {

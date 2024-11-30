@@ -1,40 +1,82 @@
 <div class="footer">
-    <div class="left-content">
-        <ng-container
-            *ngTemplateOutlet="bar; context: { value: 50, type: 'health', description: 'Vida' }"></ng-container>
-        <ng-container *ngTemplateOutlet="bar; context: { value: 10, type: 'mana', description: 'Mana' }"></ng-container>
-        <ng-container
-            *ngTemplateOutlet="bar; context: { value: 10, type: 'stamina', description: 'Stamina' }"></ng-container>
+  <div class="left-content">
+    <ng-container
+      *ngTemplateOutlet="
+        bar;
+        context: {
+          value: this.playerService.health,
+          maxValue: this.playerService.config.maxHealth,
+          type: 'health',
+          description: 'Vida'
+        }
+      "
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        bar;
+        context: {
+          value: this.playerService.mana,
+          maxValue: this.playerService.config.maxMana,
+          type: 'health',
+          description: 'Vida'
+        }
+      "
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        bar;
+        context: {
+          value: this.playerService.stamina,
+          maxValue: this.playerService.config.maxStamina,
+          type: 'stamina',
+          description: 'Stamina'
+        }
+      "
+    ></ng-container>
+  </div>
+  <div class="center-content">
+    <ng-container *ngTemplateOutlet="menu"></ng-container>
+    <ng-container *ngTemplateOutlet="menu"></ng-container>
+    <ng-container *ngTemplateOutlet="menu"></ng-container>
+  </div>
+  <div class="right-content">
+    <ng-container
+      *ngTemplateOutlet="
+        bar;
+        context: {
+          value: this.playerService.xp,
+          maxValue: this.playerService.config.maxXp,
+          type: 'xp',
+          description: 'Experiência'
+        }
+      "
+    ></ng-container>
+    <div class="money-container">
+      <img
+        src="https://opengameart.org/sites/default/files/bag_1.png"
+        class="coin-bag-image"
+      />
+      {{ this.playerService.coins }} Moedas
     </div>
-    <div class="center-content">
-        <ng-container *ngTemplateOutlet="menu"></ng-container>
-        <ng-container *ngTemplateOutlet="menu"></ng-container>
-        <ng-container *ngTemplateOutlet="menu"></ng-container>
-    </div>
-    <div class="right-content">
-        <ng-container
-            *ngTemplateOutlet="bar; context: { value: 20, type: 'xp', description: 'Experiência' }"></ng-container>
-        <div class="money-container">
-            <img src="https://opengameart.org/sites/default/files/bag_1.png" class="coin-bag-image">
-            15750 Moedas
-        </div>
-    </div>
+  </div>
 </div>
 
-<ng-template #bar let-value="value" let-type="type" let-description="description">
-    <div [class]="['bar', type]">
-        <div class="bar-fill" [style.width.%]="100 - value"></div>
-        <span class="bar-value">
-            {{value}}/100
-        </span>
-        <span class="bar-description">
-            {{description}}
-        </span>
-    </div>
+<ng-template
+  #bar
+  let-value="value"
+  let-maxValue="maxValue"
+  let-type="type"
+  let-description="description"
+>
+  <div [class]="['bar', type]">
+    <div class="bar-fill" [style.width.%]="100 - value"></div>
+    <span class="bar-value"> {{ value }}/{{ maxValue }} </span>
+    <span class="bar-description">
+      {{ description }}
+    </span>
+  </div>
 </ng-template>
 
 <ng-template #menu>
-    <div class="menu-item">
-        X
-    </div>
+  <div class="menu-item">X</div>
 </ng-template>

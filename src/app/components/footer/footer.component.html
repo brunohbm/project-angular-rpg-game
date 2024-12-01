@@ -1,4 +1,4 @@
-<div class="footer">
+<footer class="footer">
   <div class="left-content">
     <ng-container
       *ngTemplateOutlet="
@@ -35,9 +35,24 @@
     ></ng-container>
   </div>
   <div class="center-content">
-    <ng-container *ngTemplateOutlet="menu"></ng-container>
-    <ng-container *ngTemplateOutlet="menu"></ng-container>
-    <ng-container *ngTemplateOutlet="menu"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        menu;
+        context: { onClick: this.openCharacterMenu.bind(this) }
+      "
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        menu;
+        context: { onClick: this.openCharacterMenu.bind(this) }
+      "
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        menu;
+        context: { onClick: this.openCharacterMenu.bind(this) }
+      "
+    ></ng-container>
   </div>
   <div class="right-content">
     <ng-container
@@ -59,7 +74,7 @@
       {{ this.playerService.coins }} Moedas
     </div>
   </div>
-</div>
+</footer>
 
 <ng-template
   #bar
@@ -77,6 +92,6 @@
   </div>
 </ng-template>
 
-<ng-template #menu>
-  <div class="menu-item">X</div>
+<ng-template #menu let-onClick="onClick">
+  <button class="menu-item" (click)="onClick()">X</button>
 </ng-template>

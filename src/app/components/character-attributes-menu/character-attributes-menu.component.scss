@@ -1,0 +1,12 @@
+.container {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    max-width: 300px;
+    height: 100%;
+    right: -100%;
+}
+
+.is-open {
+    right: 0;
+}

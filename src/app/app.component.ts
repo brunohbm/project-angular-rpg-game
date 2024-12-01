@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { CharacterAttributesMenuComponent } from './components/character-attributes-menu/character-attributes-menu.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     RouterOutlet,    
     FooterComponent,
+    CharacterAttributesMenuComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

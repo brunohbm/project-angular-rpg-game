@@ -1,5 +1,4 @@
 import { Injectable, signal } from '@angular/core';
-import { max } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

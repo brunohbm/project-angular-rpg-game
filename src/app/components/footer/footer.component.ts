@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
-import { PlayerService } from '../../shared/services/player.service';
+import { PlayerService } from '../../shared/services/player/player.service';
+import { MenuService } from '../../shared/services/menu/menu.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +13,13 @@ import { PlayerService } from '../../shared/services/player.service';
 export class FooterComponent {
   playerService: PlayerService;
 
-  constructor(playerService: PlayerService) {
+  constructor(playerService: PlayerService, private menuService: MenuService) {
     this.playerService = playerService;
   }
+
+  openCharacterMenu() {
+    console.log(this);
+    this.menuService.toogleCharacterMenu();
+  }
+
 }

@@ -1,4 +1,4 @@
-- [ ] Add menu opening
+- [x] Add menu opening
 - [ ] Add Create Character/attributes menu
 - [ ] Add Skills menu
 - [ ] Add inventory menu

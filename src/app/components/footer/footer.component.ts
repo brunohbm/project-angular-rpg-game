@@ -18,8 +18,15 @@ export class FooterComponent {
   }
 
   openCharacterMenu() {
-    console.log(this);
-    this.menuService.toogleCharacterMenu();
+    this.menuService.toggleCharacterMenu();
+  }
+
+  openSkillsMenu() {
+    this.menuService.toggleSkillsMenu();
+  }
+
+  openInventoryMenu() {
+    this.menuService.toggleInventoryMenu();
   }
 
 }

@@ -1,3 +1,27 @@
 <section class="container" [class.is-open]="menuService.isCharacterMenuOpen">
-  <p>character-attributes-menu works!</p>
+  <div>
+    Pontos: {{ this.playerService.attributePoints }}
+  </div>
+  <div>
+    Level: {{ this.playerService.level }}
+  </div>
+  <div>
+    Experiência: {{this.playerService.configuration.maxXp}}/{{ this.playerService.xp }}
+  </div>
+  <div>
+    Força: {{ this.playerService.strength }}
+    <button (click)="this.playerService.incrementStrength()">+</button>
+  </div>
+  <div>
+    Agilidade: {{ this.playerService.agility }}
+    <button (click)="this.playerService.incrementAgility()">+</button>
+  </div>
+  <div>
+    Vitalidade: {{ this.playerService.vitality }}
+    <button (click)="this.playerService.incrementVitality()">+</button>
+  </div>
+  <div>
+    Energia: {{ this.playerService.energy }}
+    <button (click)="this.playerService.incrementEnergy()">+</button>
+  </div>
 </section>

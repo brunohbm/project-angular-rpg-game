@@ -1,5 +1,5 @@
 - [x] Add menu opening
-- [ ] Add Create Character/attributes menu
+- [x] Add Create Character/attributes menu
 - [ ] Add Skills menu
 - [ ] Add inventory menu
 - [ ] Add main screen navigation

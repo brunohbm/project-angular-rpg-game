@@ -154,5 +154,9 @@ export class PlayerService {
       this.energy$.set(this.energy + 1);
       this.attributePoints$.set(this.attributePoints - 1);
     }
+  } 
+
+  receiveAttack(strength: number) {
+    this.decrementHealth(strength);
   }
 }

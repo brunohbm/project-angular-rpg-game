@@ -16,4 +16,8 @@ export default class OrcMob implements IMob {
     attack(target: PlayerService) {
         target.receiveAttack(this.strength);
     }
+
+    incrementHealth(value: number) {
+        this.health += value;
+    }
 }

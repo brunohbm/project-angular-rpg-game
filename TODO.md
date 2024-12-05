@@ -1,6 +1,7 @@
 - [x] Add menu opening
 - [x] Add Create Character/attributes menu
-- [ ] Add Skills menu
+- [x] Add Skills menu
+- [ ] Add skills layout and skill upgrade action
 - [ ] Add inventory menu
 - [ ] Add main screen navigation
 - [ ] Add other screens as example

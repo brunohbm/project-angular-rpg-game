@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import ISpell from '../../classes/spells/ISpell';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,8 @@ export class PlayerService {
   private vitality$ = signal(this.configuration.initialVitality);
   private energy$ = signal(this.configuration.initialEnergy);
   private attributePoints$ = signal(this.configuration.initialAttributePoints);
+
+  private spells: ISpell[] = [];
 
   get config() {
     return { ...this.configuration };
@@ -158,5 +161,13 @@ export class PlayerService {
 
   receiveAttack(strength: number) {
     this.decrementHealth(strength);
+  }
+
+  getSpells() {
+    return this.spells;
+  }
+
+  addSpell(spell: ISpell) {
+    this.spells.push(spell);
   }
 }

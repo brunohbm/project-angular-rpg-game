@@ -8,8 +8,9 @@ export default interface IMob {
     xp: number;
     coins: number;
     strength: number;
-    lot?: IItem;
+    lot?: IItem[];
     
     receiveAttack(value: number): void;
     attack(target: PlayerService): void;
+    incrementHealth(value: number): void;
 }

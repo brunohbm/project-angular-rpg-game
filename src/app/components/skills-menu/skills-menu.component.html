@@ -1,6 +1,15 @@
-<section class="container" [class.is-open]="menuService.isSkillsMenuOpen">\
+<section class="container" [class.is-open]="menuService.isSkillsMenuOpen">
   Feitiços de ataque
   <div>
-    
+    <div *ngFor="let skill of attackSkills">
+      <img [src]="skill.imageSrc" class="skill-image" />
+    </div>
+  </div>
+
+  Feitiços de cura
+  <div>
+    <div *ngFor="let skill of healSkills">
+      <img [src]="skill.imageSrc" class="skill-image" />
+    </div>
   </div>
 </section>

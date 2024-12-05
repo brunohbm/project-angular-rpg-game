@@ -10,6 +10,7 @@ export default interface ISpell {
   key: string;
   name: string;
   description: string;
+  imageSrc: string;
   type: SpellType;
   manaCost: number;
   healthCost: number;
@@ -17,5 +18,5 @@ export default interface ISpell {
   effectAmount: number;
   
   checkRequirements(sender: PlayerService): boolean;
-  cast(sender:  PlayerService, target: IMob): void;
+  cast(sender:  PlayerService, target: IMob | PlayerService): void;
 }

@@ -6,6 +6,7 @@ export default class FireBallSpell implements ISpell {
   key: string = 'FIRE_BALL';
   name: string = 'Bola de fogo';
   description: string = 'Lança uma bola de fogo contra o inimigo ou aliado';
+  imageSrc: string = '/assets/images/fire-ball.webp';
   type: SpellType = SpellType.ATTACK;
   manaCost: number = 30;
   healthCost: number = 0;
@@ -16,7 +17,7 @@ export default class FireBallSpell implements ISpell {
     return sender.mana >= this.manaCost;
   }
 
-  cast(sender: PlayerService, target: IMob) {
+  cast(sender: PlayerService, target: IMob | PlayerService) {
     target.receiveAttack(this.effectAmount);
     sender.decrementMana(this.manaCost);
   }

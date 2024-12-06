@@ -2,14 +2,18 @@
   Feitiços de ataque
   <div>
     <div *ngFor="let skill of attackSkills">
-      <img [src]="skill.imageSrc" class="skill-image" />
+      <button class="skill-button">
+        <img [src]="skill.imageSrc" class="skill-image" />
+      </button>
     </div>
   </div>
 
   Feitiços de cura
   <div>
     <div *ngFor="let skill of healSkills">
-      <img [src]="skill.imageSrc" class="skill-image" />
+      <button class="skill-button">
+        <img [src]="skill.imageSrc" class="skill-image" />
+      </button>
     </div>
   </div>
 </section>

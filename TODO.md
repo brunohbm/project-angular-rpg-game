@@ -2,6 +2,7 @@
 - [x] Add Create Character/attributes menu
 - [x] Add Skills menu
 - [ ] Add skills layout and skill upgrade action
+    - [ ] Adding upgrade and hover effect
 - [ ] Add inventory menu
 - [ ] Add main screen navigation
 - [ ] Add other screens as example

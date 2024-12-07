@@ -1,0 +1,65 @@
+@import "borders";
+@import "spacing";
+
+.container {
+  position: absolute;
+  width: 100%;
+  background-color: red;
+  max-width: 300px;
+  height: 100%;
+  right: -100%;
+  transition: right 0.65s ease-in-out;
+  padding: $space-4 $space-5;
+}
+
+.is-open {
+  right: 0;
+}
+
+.spell-image {
+  width: 50px;
+  height: 50px;
+  border-radius: $border-radius-medium;
+  filter: grayscale(100%);
+  clip-path: url(#squircleClip);
+}
+
+.spell-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: $border-radius-medium;
+  width: 50px;
+  height: 50px;
+  margin-top: $space-2;
+  margin-bottom: $space-4;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+
+    .border {
+      scale: 1.1;
+      opacity: 1;
+    }
+  }
+}
+
+.border {
+  position: absolute;
+  inset: 0;
+  clip-path: url(#squircleClip);
+  scale: 1;
+  opacity: 0;
+  background: #fd5;
+  box-shadow:
+    inset 10px 10px 20px #ffcb,
+    inset -10px -10px 20px #ea18;
+  border-radius: calc(var(--size) / 6);
+  transition: 0.3s cubic-bezier(.51,.61,0,2.3);
+}
+
+.active-spell .spell-image {
+  transition: filter 1s ease-in-out;
+  filter: grayscale(0%);
+}

@@ -1,0 +1,40 @@
+<section
+  #spellsMenu
+  class="container"
+  [class.is-open]="menuService.isSkillsMenuOpen"
+>
+  Feitiços de ataque
+  <div>
+    <div *ngFor="let spell of attackSpells">
+      <button
+        class="spell-button"
+        (mouseenter)="isSpellActive(spell) ? undefined : playHoverSound()"
+        (click)="isSpellActive(spell) ? undefined : activeSpell(spell)"
+        [id]="spell.key"
+      >
+        <img [src]="spell.imageSrc" class="spell-image" />
+      </button>
+    </div>
+  </div>
+
+  Feitiços de cura
+  <div>
+    <div *ngFor="let spell of healSpells">
+      <button
+        class="spell-button"
+        (mouseenter)="isSpellActive(spell) ? undefined : playHoverSound()"
+        (click)="isSpellActive(spell) ? undefined : activeSpell(spell)"
+        [id]="spell.key"
+      >
+        <div class="border" aria-hidden="true"></div>
+        <img [src]="spell.imageSrc" class="spell-image" />
+      </button>
+    </div>
+  </div>
+
+  <svg width="0" height="0" viewBox="0 0 1 1">
+    <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5" />
+    </clipPath>
+  </svg>
+</section>

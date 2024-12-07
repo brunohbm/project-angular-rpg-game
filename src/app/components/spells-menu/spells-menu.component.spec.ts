@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkillsMenuComponent } from './skills-menu.component';
+import { SkillsMenuComponent } from './spells-menu.component';
 
 describe('SkillsMenuComponent', () => {
   let component: SkillsMenuComponent;

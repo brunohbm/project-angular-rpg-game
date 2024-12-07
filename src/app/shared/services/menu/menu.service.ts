@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { AudioService } from '../audio/audio.service';
+import AUDIO_PATHS from '../audio/audio-paths';
 
 @Injectable({
   providedIn: 'root',
@@ -25,11 +26,11 @@ export class MenuService {
 
   playMenuSound(openAction: boolean) {
     if (openAction) {
-      this.audioService.playAudio('/assets/audio/open-menu.mp3');
+      this.audioService.playAudio(AUDIO_PATHS.OPEN_MENU);
       return;
     }
 
-    this.audioService.playAudio('/assets/audio/close-menu.mp3');
+    this.audioService.playAudio(AUDIO_PATHS.CLOSE_MENU);
   }
 
   toggleCharacterMenu() {

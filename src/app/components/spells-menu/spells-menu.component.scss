@@ -22,6 +22,9 @@
   border-radius: $border-radius-medium;
   filter: grayscale(100%);
   clip-path: url(#squircleClip);
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .spell-button {
@@ -35,7 +38,7 @@
   margin-bottom: $space-4;
   position: relative;
 
-  &:hover {
+  &:not(.active-spell):hover {
     cursor: pointer;
 
     .border {
@@ -52,14 +55,30 @@
   scale: 1;
   opacity: 0;
   background: #fd5;
-  box-shadow:
-    inset 10px 10px 20px #ffcb,
-    inset -10px -10px 20px #ea18;
+  box-shadow: inset 10px 10px 20px #ffcb, inset -10px -10px 20px #ea18;
   border-radius: calc(var(--size) / 6);
-  transition: 0.3s cubic-bezier(.51,.61,0,2.3);
 }
 
 .active-spell .spell-image {
-  transition: filter 1s ease-in-out;
+  transition: filter 0.35s ease-in-out;
   filter: grayscale(0%);
+}
+
+.active-spell .border {
+  animation: expand-border 0.8s forwards;
+}
+
+@keyframes expand-border {
+  0% {
+    scale: 1.1;
+    opacity: 1;
+  }
+  25% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
 }

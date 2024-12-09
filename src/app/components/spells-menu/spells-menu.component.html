@@ -30,10 +30,12 @@
 
 <ng-template #spellButton let-spell="spell">
   <button
-    class="spell-button"
-    (mouseenter)="isSpellActive(spell) ? undefined : playHoverSound()"
-    (click)="isSpellActive(spell) ? undefined : activeSpell(spell)"
+    (mouseenter)="disableSpellActivation(spell) ? undefined : playHoverSound()"
+    (click)="disableSpellActivation(spell) ? undefined : activeSpell(spell)"
     [id]="spell.key"
+    class="spell-button"
+    [class.is-disabled]="disableSpellActivation(spell)"
+    appPopover
   >
     <div class="border" aria-hidden="true"></div>
     <img [src]="spell.imageSrc" class="spell-image" />

@@ -1,8 +1,8 @@
 - [x] Add menu opening
 - [x] Add Create Character/attributes menu
 - [x] Add Skills menu
-- [ ] Add skills layout and skill upgrade action
-    - [ ] Add animation and template to reuse the button
+- [x] Add skills layout and skill upgrade action
+    - [ ] Add popover
 - [ ] Add inventory menu
 - [ ] Add main screen navigation
 - [ ] Add other screens as example

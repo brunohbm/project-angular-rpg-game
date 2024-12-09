@@ -3,15 +3,16 @@ import { MenuService } from '../../shared/services/menu/menu.service';
 import FireBallSpell from '../../shared/classes/spells/FireBallSpell';
 import { PlayerService } from '../../shared/services/player/player.service';
 import HealSpell from '../../shared/classes/spells/HealSpell';
-import { NgFor, NgTemplateOutlet } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import ISpell from '../../shared/classes/spells/ISpell';
 import { AudioService } from '../../shared/services/audio/audio.service';
 import AUDIO_PATHS from '../../shared/services/audio/audio-paths';
+import { PopoverDirective } from '../../shared/directives/popover.directive';
 
 @Component({
   selector: 'app-spells-menu',
   standalone: true,
-  imports: [NgFor, NgTemplateOutlet],
+  imports: [NgFor, NgTemplateOutlet, NgIf, PopoverDirective],
   templateUrl: './spells-menu.component.html',
   styleUrl: './spells-menu.component.scss',
 })
@@ -30,8 +31,10 @@ export class SpellsMenuComponent {
     this.menuService = menuService;
   }
 
-  isSpellActive(spell: ISpell) {
-    return this.playerService.getSpells().some(playerSpell => playerSpell.key === spell.key);
+  disableSpellActivation(spell: ISpell) {
+    const alreadyHasSpell = this.playerService.getSpells().some(playerSpell => playerSpell.key === spell.key);
+    const doNotHaveLevel = this.playerService.level < this.playerService.getSpells().length;
+    return alreadyHasSpell || doNotHaveLevel;
   }
 
   activeSpell(newSpell: ISpell) {

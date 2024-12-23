@@ -7,12 +7,12 @@ import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import ISpell from '../../shared/classes/spells/ISpell';
 import { AudioService } from '../../shared/services/audio/audio.service';
 import AUDIO_PATHS from '../../shared/services/audio/audio-paths';
-import { PopoverDirective } from '../../shared/directives/popover.directive';
+import { SpellPopoverDirective } from '../../shared/directives/spell-popover.directive';
 
 @Component({
   selector: 'app-spells-menu',
   standalone: true,
-  imports: [NgFor, NgTemplateOutlet, NgIf, PopoverDirective],
+  imports: [NgFor, NgTemplateOutlet, NgIf, SpellPopoverDirective],
   templateUrl: './spells-menu.component.html',
   styleUrl: './spells-menu.component.scss',
 })

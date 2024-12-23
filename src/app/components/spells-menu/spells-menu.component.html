@@ -35,7 +35,8 @@
     [id]="spell.key"
     class="spell-button"
     [class.is-disabled]="disableSpellActivation(spell)"
-    appPopover
+    appSpellPopover
+    [spell]="spell"
   >
     <div class="border" aria-hidden="true"></div>
     <img [src]="spell.imageSrc" class="spell-image" />

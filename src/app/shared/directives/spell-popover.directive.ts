@@ -19,18 +19,69 @@ import ISpell from '../classes/spells/ISpell';
 export class SpellPopoverDirective implements OnInit {
   @Input({ required: true }) spell!: ISpell;
 
-  isOnHover = false;
-
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    const newElement = this.renderer.createElement('div');
-    const text = this.renderer.createText(this.spell.name);
-    this.renderer.appendChild(newElement, text);
-    this.renderer.appendChild(this.element.nativeElement, newElement);
+    const containerDiv = this.renderer.createElement('div');
+    containerDiv.classList.add('spell-popover-container');
+
+    const titleDiv = this.renderer.createElement('div');
+    titleDiv.classList.add('spell-popover-title');
+    const nameText = this.renderer.createText(this.spell.name);
+    this.renderer.appendChild(titleDiv, nameText);
+    this.renderer.appendChild(containerDiv, titleDiv);
+
+    const descriptionDiv = this.renderer.createElement('div');
+    descriptionDiv.classList.add('spell-popover-description');
+    const descriptionText = this.renderer.createText(this.spell.description);
+    this.renderer.appendChild(descriptionDiv, descriptionText);
+    this.renderer.appendChild(containerDiv, descriptionDiv);
+
+    const typeDiv = this.renderer.createElement('div');
+    typeDiv.classList.add('spell-popover-type');
+    const typeText = this.renderer.createText(`Tipo: ${this.spell.type}`);
+    this.renderer.appendChild(typeDiv, typeText);
+    this.renderer.appendChild(containerDiv, typeDiv);
+
+    if (this.spell.manaCost) {
+      const manaCostDiv = this.renderer.createElement('div');
+      manaCostDiv.classList.add('spell-popover-cost-description');
+      const manaCostText = this.renderer.createText(
+        `Custo de mana: ${this.spell.manaCost}`
+      );
+      this.renderer.appendChild(manaCostDiv, manaCostText);
+      this.renderer.appendChild(containerDiv, manaCostDiv);
+    }
+
+    if (this.spell.healthCost) {
+      const healthCostDiv = this.renderer.createElement('div');
+      healthCostDiv.classList.add('spell-popover-cost-description');
+      const healthCostText = this.renderer.createText(
+        `Custo de vida: ${this.spell.healthCost}`
+      );
+      this.renderer.appendChild(healthCostDiv, healthCostText);
+    }
+
+    if (this.spell.staminaCost) {
+      const staminaCostDiv = this.renderer.createElement('div');
+      staminaCostDiv.classList.add('spell-popover-cost-description');
+      const staminaCostText = this.renderer.createText(
+        `Custo de Stamina: ${this.spell.staminaCost}`
+      );
+      this.renderer.appendChild(staminaCostDiv, staminaCostText);
+    }
+
+    const effectAmountDiv = this.renderer.createElement('div');
+    effectAmountDiv.classList.add('spell-popover-effect-amount');
+    const effectAmountText = this.renderer.createText(
+      `Efeito: ${this.spell.effectAmount}`
+    );
+    this.renderer.appendChild(effectAmountDiv, effectAmountText);
+
+    this.renderer.appendChild(this.element.nativeElement, containerDiv);
   }
 
-  @HostBinding('class.hovering-spell-popover') fileOver: boolean = false;
+  @HostBinding('class.hovering-spell-popover') isOnHover: boolean = false;
 
   @HostListener('mouseover', ['$event']) onMouseOver(event: Event) {
     console.log('mouseOver', this.spell);

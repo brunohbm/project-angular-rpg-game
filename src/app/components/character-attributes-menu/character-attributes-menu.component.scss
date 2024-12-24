@@ -12,3 +12,23 @@
 .is-open {
   right: 0;
 }
+
+.points, .level, .experience, .strength, .agility, .vitality, .energy {
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid white;
+}
+
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #cccc84;
+  }
+}

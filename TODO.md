@@ -6,6 +6,3 @@
 - [ ] Add inventory menu
 - [ ] Add main screen navigation
 - [ ] Add other screens as example
-- [ ] Add layout
-- [ ] Add animations
-- [ ] Add sound design

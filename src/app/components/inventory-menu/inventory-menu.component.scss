@@ -6,6 +6,8 @@
   height: 100%;
   right: -100%;
   transition: right 0.65s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .is-open {
@@ -81,4 +83,10 @@
 .boots-spot {
   width: 75px;
   height: 60px;
+}
+
+.items-container {
+  background-color: #ff111183;
+  display: flex;
+  flex: 1;
 }

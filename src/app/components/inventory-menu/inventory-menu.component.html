@@ -25,4 +25,16 @@
       <div class="boots-spot">boots</div>
     </div>
   </div>
+  <div class="items-container">
+    <div
+      *ngFor="let item of inventoryItems"
+      class="item"
+      (click)="equipItem(item)"
+    >
+      <img
+        [src]="item.imageSrc"
+        [alt]="item.name"
+      />
+    </div>
+  </div>
 </section>

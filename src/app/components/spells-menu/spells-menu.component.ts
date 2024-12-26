@@ -8,6 +8,7 @@ import ISpell from '../../shared/classes/spells/ISpell';
 import { AudioService } from '../../shared/services/audio/audio.service';
 import AUDIO_PATHS from '../../shared/services/audio/audio-paths';
 import { SpellPopoverDirective } from '../../shared/directives/spell-popover.directive';
+import { ItemPopoverDirective } from '../../shared/directives/item-popover.directive';
 
 @Component({
   selector: 'app-spells-menu',

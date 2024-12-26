@@ -21,23 +21,24 @@ export enum ItemTypeEnum {
 }
 
 export const ITEM_SLOTS: { [
-    key in keyof typeof ItemTypeEnum
+  key in keyof typeof ItemTypeEnum
 ]: [number, number] } = {
-    LEFT_WEAPON: [2, 4],
-    GLOVES: [2, 2],
-    EARING: [1, 1],
-    HELMET: [2, 2],
-    NECKLACE: [1, 1],
-    ARMOR: [2, 4],
-    CAPE: [2, 4],
-    RING: [1, 1],
-    BELT: [1, 3],
-    RIGHT_WEAPON: [2, 4],
-    BOOTS: [2, 2],
-    CONSUMABLE: [1, 1],
+  LEFT_WEAPON: [4, 6],
+  GLOVES: [4, 4],
+  EARING: [2, 2],
+  HELMET: [4, 4],
+  NECKLACE: [2, 2],
+  ARMOR: [4, 6],
+  CAPE: [4, 6],
+  RING: [2, 2],
+  BELT: [2, 6],
+  RIGHT_WEAPON: [4, 8],
+  BOOTS: [4, 4],
+  CONSUMABLE: [2, 2],
 };
 
 export default interface IItem {
+  key: string;
   name: string;
   description: string;
   type: ItemTypeEnum;

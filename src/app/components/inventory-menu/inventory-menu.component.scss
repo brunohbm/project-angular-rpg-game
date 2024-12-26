@@ -1,7 +1,7 @@
 .container {
   position: absolute;
   width: 100%;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
   max-width: 400px;
   height: 100%;
   right: -100%;
@@ -86,7 +86,25 @@
 }
 
 .items-container {
-  background-color: #ff111183;
   display: flex;
   flex: 1;
+  position: relative;
+  background-image: url("/assets/images/inventory-background.png");
+  background-size: 20px;
+}
+
+.item:hover {
+  background-color: #000000a4;
+  cursor: pointer;
+  border: 1px solid #000000a4;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.item-image {
+  padding: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  object-fit: contain;
 }

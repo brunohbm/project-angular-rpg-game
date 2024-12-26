@@ -25,16 +25,17 @@
       <div class="boots-spot">boots</div>
     </div>
   </div>
-  <div class="items-container">
+  <div class="items-container" #itemsContainer>
     <div
-      *ngFor="let item of inventoryItems"
+      *ngFor="let item of playerService.inventory"
       class="item"
       (click)="equipItem(item)"
+      [style.width.px]="widthPerSlot * item.slots[0]"
+      [style.height.px]="widthPerSlot * item.slots[1]"
+      appItemPopover
+      [item]="item"
     >
-      <img
-        [src]="item.imageSrc"
-        [alt]="item.name"
-      />
+      <img [src]="item.imageSrc" [alt]="item.name" class="item-image" />
     </div>
   </div>
 </section>

@@ -1,15 +1,17 @@
-.spell-popover {
-  position: absolute;
-
-  .spell-popover-container {
-    display: none;
-  }
-}
-
-.hovering-spell-popover {
-  .spell-popover-container {
-    display: block;
-  }
+.popover-container {
+  padding: 1em;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  z-index: 1;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-image: url('/assets/images/papyrus.jpg');
+  background-size: cover;
+  padding: 20px;
 }
 
 .spell-popover-title {
@@ -32,13 +34,14 @@
     letter-spacing: 0.1em;
 }
 
-.spell-popover-container {
-  padding: 1em;
-  border-radius: 5px;
-  background-color: #ffffff;
-  position: relative;
-  top: calc(100% + 6px);
-  width: 180px;
-  z-index: 1;
-  text-align: left;
+
+.item-popover-title {
+  font-weight: 900;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.item-popover-description {
+  font-size: 1em;
+  margin-bottom: 1em;
 }

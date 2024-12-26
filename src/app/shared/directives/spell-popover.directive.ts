@@ -18,30 +18,32 @@ import ISpell from '../classes/spells/ISpell';
 })
 export class SpellPopoverDirective implements OnInit {
   @Input({ required: true }) spell!: ISpell;
+  popoverContainer!: HTMLDivElement;
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    const containerDiv = this.renderer.createElement('div');
-    containerDiv.classList.add('spell-popover-container');
+    this.popoverContainer = this.renderer.createElement('div');
+    this.popoverContainer.classList.add('popover-container');
+    this.popoverContainer.style.display = 'none';
 
     const titleDiv = this.renderer.createElement('div');
     titleDiv.classList.add('spell-popover-title');
     const nameText = this.renderer.createText(this.spell.name);
     this.renderer.appendChild(titleDiv, nameText);
-    this.renderer.appendChild(containerDiv, titleDiv);
+    this.renderer.appendChild(this.popoverContainer, titleDiv);
 
     const descriptionDiv = this.renderer.createElement('div');
     descriptionDiv.classList.add('spell-popover-description');
     const descriptionText = this.renderer.createText(this.spell.description);
     this.renderer.appendChild(descriptionDiv, descriptionText);
-    this.renderer.appendChild(containerDiv, descriptionDiv);
+    this.renderer.appendChild(this.popoverContainer, descriptionDiv);
 
     const typeDiv = this.renderer.createElement('div');
     typeDiv.classList.add('spell-popover-type');
     const typeText = this.renderer.createText(`Tipo: ${this.spell.type}`);
     this.renderer.appendChild(typeDiv, typeText);
-    this.renderer.appendChild(containerDiv, typeDiv);
+    this.renderer.appendChild(this.popoverContainer, typeDiv);
 
     if (this.spell.manaCost) {
       const manaCostDiv = this.renderer.createElement('div');
@@ -50,7 +52,7 @@ export class SpellPopoverDirective implements OnInit {
         `Custo de mana: ${this.spell.manaCost}`
       );
       this.renderer.appendChild(manaCostDiv, manaCostText);
-      this.renderer.appendChild(containerDiv, manaCostDiv);
+      this.renderer.appendChild(this.popoverContainer, manaCostDiv);
     }
 
     if (this.spell.healthCost) {
@@ -78,20 +80,16 @@ export class SpellPopoverDirective implements OnInit {
     );
     this.renderer.appendChild(effectAmountDiv, effectAmountText);
 
-    this.renderer.appendChild(this.element.nativeElement, containerDiv);
+    this.renderer.appendChild(this.element.nativeElement, this.popoverContainer);
   }
 
-  @HostBinding('class.hovering-spell-popover') isOnHover: boolean = false;
-
   @HostListener('mouseover', ['$event']) onMouseOver(event: Event) {
-    console.log('mouseOver', this.spell);
     event.preventDefault();
-    this.isOnHover = true;
+    this.popoverContainer.style.display = 'block';
   }
 
   @HostListener('mouseout', ['$event']) onMouseOut(event: Event) {
-    console.log('mouseout');
     event.preventDefault();
-    this.isOnHover = false;
+    this.popoverContainer.style.display = 'none';
   }
 }

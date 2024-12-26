@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import ISpell from '../../classes/spells/ISpell';
+import IItem from '../../classes/items/IItem';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,7 @@ export class PlayerService {
   private vitality$ = signal(this.configuration.initialVitality);
   private energy$ = signal(this.configuration.initialEnergy);
   private attributePoints$ = signal(this.configuration.initialAttributePoints);
+  private inventory$ = signal<IItem[]>([]);
 
   private spells: ISpell[] = [];
 
@@ -67,6 +69,9 @@ export class PlayerService {
   }
   get attributePoints() {
     return this.attributePoints$();
+  }
+  get inventory() {
+    return this.inventory$();
   }
 
   constructor() {}
@@ -169,5 +174,15 @@ export class PlayerService {
 
   addSpell(spell: ISpell) {
     this.spells.push(spell);
+  }
+
+  addItemToInventory(item: IItem) {
+    this.inventory$.set([...this.inventory, item]);
+  }
+
+  removeItemFromInventory(item: IItem) {
+    this.inventory$.set(
+      this.inventory.filter((inventoryItem) => inventoryItem.key !== item.key)
+    );
   }
 }

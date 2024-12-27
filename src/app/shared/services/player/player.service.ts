@@ -1,6 +1,13 @@
 import { Injectable, signal } from '@angular/core';
 import ISpell from '../../classes/spells/ISpell';
-import IItem from '../../classes/items/IItem';
+import IItem, { ItemTypeEnum } from '../../classes/items/IItem';
+
+type EquippedItemType = Omit<
+  {
+    [key in ItemTypeEnum]?: IItem | null;
+  },
+  ItemTypeEnum.CONSUMABLE
+>;
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +38,7 @@ export class PlayerService {
   private energy$ = signal(this.configuration.initialEnergy);
   private attributePoints$ = signal(this.configuration.initialAttributePoints);
   private inventory$ = signal<IItem[]>([]);
+  private equippedItems$ = signal<EquippedItemType>({});
 
   private spells: ISpell[] = [];
 
@@ -72,6 +80,9 @@ export class PlayerService {
   }
   get inventory() {
     return this.inventory$();
+  }
+  get equippedItems() {
+    return this.equippedItems$();
   }
 
   constructor() {}
@@ -184,5 +195,23 @@ export class PlayerService {
     this.inventory$.set(
       this.inventory.filter((inventoryItem) => inventoryItem.key !== item.key)
     );
+  }
+
+  equipItem(item: IItem) {
+    if (item.type === ItemTypeEnum.CONSUMABLE) return;
+    this.equippedItems$.set({
+      ...this.equippedItems,
+      [item.type]: item,
+    });
+
+    this.removeItemFromInventory(item);
+  }
+
+  unequipItem(item: IItem) {
+    this.equippedItems$.set({
+      ...this.equippedItems,
+      [item.type]: null,
+    });
+    this.addItemToInventory(item);
   }
 }

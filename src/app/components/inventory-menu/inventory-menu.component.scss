@@ -52,10 +52,11 @@
 .right-weapon-spot,
 .boots-spot {
   background-color: #ffffff83;
-  padding: 5px;
   border: 1px solid #000;
   text-align: center;
   height: fit-content;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .belt-spot {
@@ -93,13 +94,34 @@
   background-size: 20px;
 }
 
-.item:hover {
-  background-color: #000000a4;
-  cursor: pointer;
-  border: 1px solid #000000a4;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+.common-item {
+  background: radial-gradient(circle, #0068ca85 0%, rgba(255, 0, 0, 0) 90%);
+}
+
+.rare-item {
+  background: radial-gradient(circle, #aca705e0 0%, rgba(255, 0, 0, 0) 90%);
+}
+
+.epic-item {
+  background: radial-gradient(circle, #ca5800d2 0%, rgba(255, 0, 0, 0) 90%);
+}
+
+.legendary-item {
+  background: radial-gradient(circle, #8c029e 0%, rgba(255, 0, 0, 0) 90%);
+}
+
+
+.item {
+  background-color: #0000009a;
+
+  &:hover {
+    background-color: #000000ca;
+    cursor: pointer;
+    border: 1px solid #000000ca;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
 }
 
 .item-image {
@@ -107,4 +129,28 @@
   width: calc(100% - 10px);
   height: calc(100% - 10px);
   object-fit: contain;
+  filter: contrast(120%);
+}
+
+.item:hover .item-image {
+  filter: contrast(140%);
+}
+
+.equipped-item {
+  background-color: #0000009a;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  object-fit: contain;
+  filter: contrast(140%);
+  padding: 5px;
+}
+
+.equipped-container {
+  :hover {
+    cursor: pointer;
+  background-color: #000000c9;
+  }
+
+  width: 100%;
+  height: 100%;
 }

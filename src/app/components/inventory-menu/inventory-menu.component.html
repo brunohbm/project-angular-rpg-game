@@ -1,28 +1,112 @@
 <section class="container" [class.is-open]="menuService.isInventoryMenuOpen">
   <div class="equipped-items-container">
     <div class="left-items">
-      <div class="left-weapon-spot">left-weapon</div>
-      <div class="gloves-spot">gloves</div>
+      <div class="left-weapon-spot">
+        <ng-container
+          *ngTemplateOutlet="
+            equippedItem;
+            context: { item: playerService.equippedItems.left_weapon }
+          "
+        ></ng-container>
+      </div>
+      <div class="gloves-spot">
+        <ng-container
+          *ngTemplateOutlet="
+            equippedItem;
+            context: { item: playerService.equippedItems.gloves }
+          "
+        ></ng-container>
+      </div>
     </div>
     <div class="center-items">
       <div class="center-items-line">
-        <div class="earing-spot">earing</div>
-        <div class="helmet-spot">helmet</div>
-        <div class="necklace-spot">necklace</div>
+        <div class="earing-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.earing }
+            "
+          ></ng-container>
+        </div>
+        <div class="helmet-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.helmet }
+            "
+          ></ng-container>
+        </div>
+        <div class="necklace-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.necklace }
+            "
+          ></ng-container>
+        </div>
       </div>
       <div class="center-items-line">
-        <div class="armor-spot">armor</div>
-        <div class="cape-spot">cape</div>
+        <div class="armor-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.armor }
+            "
+          ></ng-container>
+        </div>
+        <div class="cape-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.cape }
+            "
+          ></ng-container>
+        </div>
       </div>
       <div class="center-items-line">
-        <div class="ring-spot">ring</div>
-        <div class="belt-spot">belt</div>
-        <div class="ring-spot">ring</div>
+        <div class="ring-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.ring }
+            "
+          ></ng-container>
+        </div>
+        <div class="belt-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.belt }
+            "
+          ></ng-container>
+        </div>
+        <div class="ring-spot">
+          <ng-container
+            *ngTemplateOutlet="
+              equippedItem;
+              context: { item: playerService.equippedItems.ring }
+            "
+          ></ng-container>
+        </div>
       </div>
     </div>
     <div class="right-items">
-      <div class="right-weapon-spot">right-weapon</div>
-      <div class="boots-spot">boots</div>
+      <div class="right-weapon-spot">
+        <ng-container
+          *ngTemplateOutlet="
+            equippedItem;
+            context: { item: playerService.equippedItems.right_weapon }
+          "
+        ></ng-container>
+      </div>
+      <div class="boots-spot">
+        <ng-container
+          *ngTemplateOutlet="
+            equippedItem;
+            context: { item: playerService.equippedItems.boots }
+          "
+        ></ng-container>
+      </div>
     </div>
   </div>
   <div class="items-container" #itemsContainer>
@@ -34,8 +118,21 @@
       [style.height.px]="widthPerSlot * item.slots[1]"
       appItemPopover
       [item]="item"
+      [class]="item.variation + '-item'"
     >
       <img [src]="item.imageSrc" [alt]="item.name" class="item-image" />
     </div>
   </div>
 </section>
+
+<ng-template #equippedItem let-item="item">
+  <div *ngIf="item" appItemPopover [item]="item" class="equipped-container">
+    <img
+      [src]="item.imageSrc"
+      [alt]="item.name"
+      class="equipped-item"
+      [class]="item.variation + '-item'"
+      (click)="unequipItem(item)"
+    />
+  </div>
+</ng-template>

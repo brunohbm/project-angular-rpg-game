@@ -2,12 +2,20 @@ import { Injectable, signal } from '@angular/core';
 import ISpell from '../../classes/spells/ISpell';
 import IItem, { ItemTypeEnum } from '../../classes/items/IItem';
 
-type EquippedItemType = Omit<
-  {
-    [key in ItemTypeEnum]?: IItem | null;
-  },
-  ItemTypeEnum.CONSUMABLE
->;
+type EquippedItemType = {
+  left_weapon?: IItem | null;
+  right_weapon?: IItem | null;
+  gloves?: IItem | null;
+  earing?: IItem | null;
+  helmet?: IItem | null;
+  necklace?: IItem | null;
+  armor?: IItem | null;
+  cape?: IItem | null;
+  left_ring?: IItem | null;
+  right_ring?: IItem | null;
+  belt?: IItem | null;
+  boots?: IItem | null;
+};
 
 @Injectable({
   providedIn: 'root',
@@ -173,7 +181,7 @@ export class PlayerService {
       this.energy$.set(this.energy + 1);
       this.attributePoints$.set(this.attributePoints - 1);
     }
-  } 
+  }
 
   receiveAttack(strength: number) {
     this.decrementHealth(strength);
@@ -199,19 +207,40 @@ export class PlayerService {
 
   equipItem(item: IItem) {
     if (item.type === ItemTypeEnum.CONSUMABLE) return;
-    this.equippedItems$.set({
-      ...this.equippedItems,
-      [item.type]: item,
-    });
+
+    if (item.type === ItemTypeEnum.RING) {
+      if (this.equippedItems.left_ring) {
+        this.equippedItems$.set({
+          ...this.equippedItems,
+          right_ring: item,
+        });
+      } else {
+        this.equippedItems$.set({
+          ...this.equippedItems,
+          left_ring: item,
+        });
+      }
+    } else {
+      this.equippedItems$.set({
+        ...this.equippedItems,
+        [item.type]: item,
+      });
+    }
 
     this.removeItemFromInventory(item);
   }
 
   unequipItem(item: IItem) {
-    this.equippedItems$.set({
-      ...this.equippedItems,
-      [item.type]: null,
+    Object.keys(this.equippedItems).forEach((key) => {
+      const foundItem = this.equippedItems[key as keyof EquippedItemType];
+
+      if (foundItem?.key === item.key) {
+        this.equippedItems$.set({
+          ...this.equippedItems,
+          [key]: null,
+        });
+        this.addItemToInventory(foundItem);
+      }
     });
-    this.addItemToInventory(item);
   }
 }

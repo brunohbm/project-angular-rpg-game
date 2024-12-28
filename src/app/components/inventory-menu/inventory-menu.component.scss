@@ -59,6 +59,13 @@
   min-height: 40px;
 }
 
+.ring-spot,
+.earing-spot,
+.necklace-spot {
+  width: 40px;
+  height: 40px;
+}
+
 .belt-spot {
   width: 80px;
 }
@@ -87,11 +94,18 @@
 }
 
 .items-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+  grid-template-rows: auto;
+  // https://www.w3schools.com/css/css_grid.asp
+}
+
+.items-container-wrapper {
   display: flex;
-  flex: 1;
-  position: relative;
   background-image: url("/assets/images/inventory-background.png");
   background-size: 20px;
+  flex: 1;
 }
 
 .common-item {
@@ -109,7 +123,6 @@
 .legendary-item {
   background: radial-gradient(circle, #8c029e 0%, rgba(255, 0, 0, 0) 90%);
 }
-
 
 .item {
   background-color: #0000009a;
@@ -148,7 +161,7 @@
 .equipped-container {
   :hover {
     cursor: pointer;
-  background-color: #000000c9;
+    background-color: #000000c9;
   }
 
   width: 100%;

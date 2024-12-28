@@ -68,7 +68,7 @@
           <ng-container
             *ngTemplateOutlet="
               equippedItem;
-              context: { item: playerService.equippedItems.ring }
+              context: { item: playerService.equippedItems.left_ring }
             "
           ></ng-container>
         </div>
@@ -84,7 +84,7 @@
           <ng-container
             *ngTemplateOutlet="
               equippedItem;
-              context: { item: playerService.equippedItems.ring }
+              context: { item: playerService.equippedItems.right_ring }
             "
           ></ng-container>
         </div>
@@ -109,18 +109,22 @@
       </div>
     </div>
   </div>
-  <div class="items-container" #itemsContainer>
-    <div
-      *ngFor="let item of playerService.inventory"
-      class="item"
-      (click)="equipItem(item)"
-      [style.width.px]="widthPerSlot * item.slots[0]"
-      [style.height.px]="widthPerSlot * item.slots[1]"
-      appItemPopover
-      [item]="item"
-      [class]="item.variation + '-item'"
-    >
-      <img [src]="item.imageSrc" [alt]="item.name" class="item-image" />
+    <div class="items-container-wrapper">
+    <div class="items-container" #itemsContainer>
+      <div
+        *ngFor="let item of playerService.inventory"
+        class="item"
+        (click)="equipItem(item)"
+        [style.width.px]="widthPerSlot * item.slots[0]"
+        [style.height.px]="widthPerSlot * item.slots[1]"
+        appItemPopover
+        [item]="item"
+        [class]="item.variation + '-item'"
+        [style.grid-column]="item.slots[0]"
+        [style.grid-row]="item.slots[1]"
+      >
+        <img [src]="item.imageSrc" [alt]="item.name" class="item-image" />
+      </div>
     </div>
   </div>
 </section>

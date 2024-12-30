@@ -3,6 +3,6 @@
 - [x] Add Skills menu
 - [x] Add skills layout and skill upgrade action
     - [x] Add popover
-- [ ] Add inventory menu
+- [x] Add inventory menu
 - [ ] Add main screen navigation
 - [ ] Add other screens as example

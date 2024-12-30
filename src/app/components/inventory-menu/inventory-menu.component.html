@@ -120,8 +120,8 @@
         appItemPopover
         [item]="item"
         [class]="item.variation + '-item'"
-        [style.grid-column]="item.slots[0]"
-        [style.grid-row]="item.slots[1]"
+        [style.grid-column-end]="'span ' + item.slots[0]"
+        [style.grid-row-end]="'span ' + item.slots[1]"
       >
         <img [src]="item.imageSrc" [alt]="item.name" class="item-image" />
       </div>

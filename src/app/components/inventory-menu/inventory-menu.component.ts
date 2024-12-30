@@ -49,9 +49,6 @@ export class InventoryMenuComponent {
     playerService.addItemToInventory(new NecklaceItem());
     playerService.addItemToInventory(new EaringItem());
     playerService.addItemToInventory(new BeltItem());
-    playerService.addItemToInventory(new BeltItem());
-    playerService.addItemToInventory(new BeltItem());
-    playerService.addItemToInventory(new BeltItem());
     this.playerService = playerService;
   }
 

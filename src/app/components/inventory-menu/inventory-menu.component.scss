@@ -1,3 +1,5 @@
+$slot-size: 20px;
+
 .container {
   position: absolute;
   width: 100%;
@@ -96,15 +98,14 @@
 .items-container {
   display: grid;
   width: 100%;
-  grid-template-columns: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
-  grid-template-rows: auto;
-  // https://www.w3schools.com/css/css_grid.asp
+  grid-template-columns: repeat(20, $slot-size);
+  grid-template-rows: repeat(20, $slot-size);
 }
 
 .items-container-wrapper {
   display: flex;
   background-image: url("/assets/images/inventory-background.png");
-  background-size: 20px;
+  background-size: $slot-size;
   flex: 1;
 }
 
@@ -126,7 +127,8 @@
 
 .item {
   background-color: #0000009a;
-
+  display: flex;
+  
   &:hover {
     background-color: #000000ca;
     cursor: pointer;

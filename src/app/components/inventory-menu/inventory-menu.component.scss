@@ -3,13 +3,30 @@ $slot-size: 20px;
 .container {
   position: absolute;
   width: 100%;
-  background-color: rgb(0, 0, 0);
-  max-width: 400px;
-  height: 100%;
+  max-width: 406px;
   right: -100%;
   transition: right 0.65s ease-in-out;
-  display: flex;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 0;
   flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  max-width: 406px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(255, 255, 255);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 3px;
+    width: 3px;
+  }
 }
 
 .is-open {
@@ -70,6 +87,7 @@ $slot-size: 20px;
 
 .belt-spot {
   width: 80px;
+  height: 40px;
 }
 
 .helmet-spot {
@@ -128,7 +146,7 @@ $slot-size: 20px;
 .item {
   background-color: #0000009a;
   display: flex;
-  
+
   &:hover {
     background-color: #000000ca;
     cursor: pointer;

@@ -1,12 +1,30 @@
 .container {
+  top: 0;
   position: absolute;
   width: 100%;
-  max-width: 300px;
   height: 100%;
   right: -100%;
   transition: right 0.65s ease-in-out;
   background-color: black;
   color: white;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 406px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(255, 255, 255);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 3px;
+    width: 3px;
+  }
 }
 
 .is-open {

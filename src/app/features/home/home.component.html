@@ -1,0 +1,13 @@
+<section class="home-container">
+  <img src="/assets/images/map.jpg" class="map-image" />
+  <ng-container *ngFor="let location of locations">
+    <a
+      [routerLink]="location.path"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      class="map-pin"
+    >
+      <img src="/assets/images/map-pin.png" height="30" />
+    </a>
+  </ng-container>
+</section>

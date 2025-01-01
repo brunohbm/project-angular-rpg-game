@@ -13,8 +13,13 @@ export class HomeComponent {
   locations = [
     {
       path: 'lumenhorne',
-      name: 'Cidade de Lumenhorne',
-      description: 'Cidade de Lumenhorne, uma cidade de luz e esperança.'
+      left: '11%',
+      top: '9%',
+    },
+    {
+      path: 'horne-iceland',
+      left: '88%',
+      top: '9%',
     }
   ]
 }

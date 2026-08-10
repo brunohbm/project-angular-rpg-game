@@ -6,6 +6,15 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script>
+      (function(){
+        try {
+          var t = localStorage.getItem('rpg-theme');
+          if (t === 'dark') document.documentElement.classList.add('theme-dark');
+          else if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('theme-dark');
+        } catch(e) { /* ignore */ }
+      })();
+    </script>
   </head>
   <body style="margin: 0px">
     <app-root></app-root>

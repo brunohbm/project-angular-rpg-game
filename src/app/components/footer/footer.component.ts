@@ -2,6 +2,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { PlayerService } from '../../shared/services/player/player.service';
 import { MenuService } from '../../shared/services/menu/menu.service';
+import { ThemeService } from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,9 +13,12 @@ import { MenuService } from '../../shared/services/menu/menu.service';
 })
 export class FooterComponent {
   playerService: PlayerService;
+  theme: string = 'light';
 
-  constructor(playerService: PlayerService, private menuService: MenuService) {
+  constructor(playerService: PlayerService, private menuService: MenuService, private themeService: ThemeService) {
     this.playerService = playerService;
+    this.theme = this.themeService.get();
+    this.themeService.theme$.subscribe((t) => (this.theme = t));
   }
 
   openCharacterMenu() {
@@ -27,6 +31,10 @@ export class FooterComponent {
 
   openInventoryMenu() {
     this.menuService.toggleInventoryMenu();
+  }
+
+  toggleTheme() {
+    this.themeService.toggle();
   }
 
 }

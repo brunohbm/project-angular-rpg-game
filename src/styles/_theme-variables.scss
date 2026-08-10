@@ -1,0 +1,49 @@
+/* Theme variables for light and dark modes */
+:root {
+  /* Core colors */
+  --color-bg: #faf8ef;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2efe6;
+  --color-text: #111111;
+  --color-border: rgba(0,0,0,0.12);
+
+  /* Accent / status */
+  --color-health: #e65050;
+  --color-mana: #3aa3ff;
+  --color-life: #f6c84c;
+  --color-xp: #9b6cff;
+
+  /* Item colors */
+  --color-item-common: rgba(0,104,202,0.52);
+  --color-item-rare: rgba(172,167,5,0.88);
+  --color-item-epic: rgba(202,88,0,0.82);
+  --color-item-legendary: #8c029e;
+
+  /* Overlays */
+  --color-surface-overlay: rgba(0,0,0,0.52);
+  --color-surface-inverse: rgba(255,255,255,0.52);
+}
+
+.theme-dark {
+  --color-bg: #0f0f11;
+  --color-surface: #111214;
+  --color-surface-2: #151618;
+  --color-text: #e9e9ea;
+  --color-border: rgba(255,255,255,0.06);
+
+  --color-health: #ff6b6b;
+  --color-mana: #5fb3ff;
+  --color-life: #f5d76e;
+  --color-xp: #b089ff;
+
+  --color-item-common: rgba(0,104,202,0.28);
+  --color-item-rare: rgba(172,167,5,0.6);
+  --color-item-epic: rgba(202,88,0,0.6);
+  --color-item-legendary: #9b34b0;
+
+  --color-surface-overlay: rgba(255,255,255,0.04);
+  --color-surface-inverse: rgba(0,0,0,0.28);
+}
+
+/* Fallback for older browsers */
+html { background-color: var(--color-bg); color: var(--color-text); }

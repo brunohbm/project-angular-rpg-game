@@ -11,7 +11,7 @@ $slot-size: 20px;
   overflow-x: hidden;
   top: 0;
   flex-direction: column;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--color-bg);
   max-width: 406px;
 
   &::-webkit-scrollbar {
@@ -19,11 +19,11 @@ $slot-size: 20px;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-surface-2);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: red;
+    background-color: var(--color-border);
     border-radius: 3px;
     width: 3px;
   }
@@ -36,7 +36,7 @@ $slot-size: 20px;
 .equipped-items-container {
   display: flex;
   justify-content: space-between;
-  background-color: #00000083;
+  background-color: var(--color-surface-overlay);
   padding: 10px;
 }
 
@@ -70,8 +70,8 @@ $slot-size: 20px;
 .belt-spot,
 .right-weapon-spot,
 .boots-spot {
-  background-color: #ffffff83;
-  border: 1px solid #000;
+  background-color: var(--color-surface-inverse);
+  border: 1px solid var(--color-border);
   text-align: center;
   height: fit-content;
   min-width: 40px;
@@ -128,29 +128,29 @@ $slot-size: 20px;
 }
 
 .common-item {
-  background: radial-gradient(circle, #0068ca85 0%, rgba(255, 0, 0, 0) 90%);
+  background: radial-gradient(circle, var(--color-item-common) 0%, rgba(255, 0, 0, 0) 90%);
 }
 
 .rare-item {
-  background: radial-gradient(circle, #aca705e0 0%, rgba(255, 0, 0, 0) 90%);
+  background: radial-gradient(circle, var(--color-item-rare) 0%, rgba(255, 0, 0, 0) 90%);
 }
 
 .epic-item {
-  background: radial-gradient(circle, #ca5800d2 0%, rgba(255, 0, 0, 0) 90%);
+  background: radial-gradient(circle, var(--color-item-epic) 0%, rgba(255, 0, 0, 0) 90%);
 }
 
 .legendary-item {
-  background: radial-gradient(circle, #8c029e 0%, rgba(255, 0, 0, 0) 90%);
+  background: radial-gradient(circle, var(--color-item-legendary) 0%, rgba(255, 0, 0, 0) 90%);
 }
 
 .item {
-  background-color: #0000009a;
+  background-color: var(--color-surface-overlay);
   display: flex;
 
   &:hover {
-    background-color: #000000ca;
+    background-color: rgba(0,0,0,0.8);
     cursor: pointer;
-    border: 1px solid #000000ca;
+    border: 1px solid rgba(0,0,0,0.8);
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -170,7 +170,7 @@ $slot-size: 20px;
 }
 
 .equipped-item {
-  background-color: #0000009a;
+  background-color: var(--color-surface-overlay);
   width: calc(100% - 10px);
   height: calc(100% - 10px);
   object-fit: contain;
@@ -181,7 +181,7 @@ $slot-size: 20px;
 .equipped-container {
   :hover {
     cursor: pointer;
-    background-color: #000000c9;
+    background-color: rgba(0,0,0,0.79);
   }
 
   width: 100%;

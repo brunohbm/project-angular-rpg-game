@@ -4,7 +4,7 @@
 
 .footer {
     display: flex;
-    background-color: $color-dark;
+    background-color: var(--color-surface);
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -33,24 +33,24 @@
     letter-spacing: 1px;
     font-weight: 600;
     padding-top: 1px;
-    color: $color-light;
+    color: var(--color-text);
     position: relative;
     overflow: hidden;
 
     &.health {
-        background-color: $color-health;
+        background-color: var(--color-health);
     }
 
     &.mana {
-        background-color: $color-mana;
+        background-color: var(--color-mana);
     }
 
     &.stamina {
-        background-color: $color-life;
+        background-color: var(--color-life);
     }
 
     &.xp {
-        background-color: $color-xp;
+        background-color: var(--color-xp);
     }
 
     &:hover {
@@ -76,7 +76,7 @@
 .bar-fill {
     position: absolute;
     height: 100%;
-    background-color: $color-dark;
+    background-color: var(--color-surface-2);
     opacity: 0.8;
     right: 0;
 }
@@ -91,7 +91,7 @@
 .menu-item {
     height: 55px;
     width: 45px;
-    background-color: $color-health;
+    background-color: var(--color-health);
 }
 
 .right-content {
@@ -112,5 +112,15 @@
 .money-container {
     display: flex;
     align-items: center;
-    color: $color-light;
+        color: var(--color-text);
+
+.theme-toggle {
+    margin-left: 12px;
+    height: 36px;
+    width: 48px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
 }
